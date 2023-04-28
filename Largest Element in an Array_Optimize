@@ -25,3 +25,46 @@ int main(){
     
     return 0;
 }
+
+-------------------------------------------------------------------------------------------
+#include<iostream>
+using namespace std;
+
+int getLargest(int a[],int n){
+    int largest_index=0;
+    for(int i=1;i<n;i++){
+        if(a[i]>a[largest_index]){
+            largest_index=i;
+        }
+    }
+    return a[largest_index];
+}
+
+void secondLargest(int a[],int n){
+   int largest=getLargest(a,n);
+   int second_l=0;
+   for(int i=0;i<n;i++){
+       if(a[i]!=largest){
+           if(a[i]>a[second_l]){
+               second_l=i;
+           }
+       }
+   }
+   cout<<a[second_l];
+}
+int main(){
+    // int n;
+    // cin>>n;
+    int a[]={ 12, 99, 1, 100, 34, 1 };
+    // for(int i=0;i<n;i++){
+    //     cin>>a[i];
+    // }
+    for(int i=0;i<6;i++){
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+    
+    secondLargest(a,6);
+    
+    return 0;
+}
