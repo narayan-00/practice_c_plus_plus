@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+void secondLargest(int a[],int n){
+   int first_l=0;
+   int second_l=0;
+   for(int i=1;i<n;i++){
+       if(a[i]>a[first_l]){
+           second_l=first_l;
+           first_l=i;
+           
+       }
+       else if(a[i]<a[first_l]){
+           if(a[second_l]<a[i]){
+           second_l=i;
+       }
+       }
+       
+   }
+   cout<<a[second_l];
+}
+int main(){
+    // int n;
+    // cin>>n;
+    int a[]={ 12, 35, 1, 10, 34, 1 };
+    // for(int i=0;i<n;i++){
+    //     cin>>a[i];
+    // }
+    for(int i=0;i<6;i++){
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+    
+    secondLargest(a,6);
+    
+    return 0;
+}
