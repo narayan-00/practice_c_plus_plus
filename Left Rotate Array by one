@@ -1,0 +1,36 @@
+ #include<iostream>
+ using namespace std;
+ 
+ 
+int* leftRotateByOne(int a[],int n){
+    int temp=a[0];
+    for(int i=1;i<n;i++){
+        
+        a[i-1]=a[i];
+    }
+    a[n-1]=temp;
+    for(int i=0;i<n;i++){
+        cout<<a[i]<<" ";
+    }
+    
+    //C++ Program to Demonstrating returning of a local array
+// from a function Using Dynamically Allocated Array
+    int* x=new int[n];
+    for(int i=0;i<n;i++){
+        x[i]=a[i];
+    }
+    return x;
+}
+
+
+int main(){
+    int a[]={1,2,3,4,5,6};
+    int n=sizeof(a)/sizeof(a[0]);
+    
+    
+    int* res=leftRotateByOne(a,n);
+    cout<<endl<<res[0]<<" "<<res[1];
+    delete[] res; // allocated memory must be deleted
+    return 0;
+     
+ }
